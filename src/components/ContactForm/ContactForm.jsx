@@ -17,13 +17,14 @@ class ContactForm extends Component {
 
   reset = () => this.setState({ name: '', number: '' });
 
-  inputId = nanoid();
-
   render() {
     const { name, number } = this.state;
 
     return (
-      <form onSubmit={this.handleSumit}>
+      <form
+        onSubmit={this.handleSumit}
+        style={{ display: 'flex', gap: '15px' }}
+      >
         <label htmlFor={this.inputId}>
           Name
           <input
@@ -36,7 +37,7 @@ class ContactForm extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <label htmlFor={this.inputId}>
+        <label>
           Number
           <input
             type="tel"

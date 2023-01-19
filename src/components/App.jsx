@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ContactForm from 'components/ContactForm/ContactForm';
+import ContactList from 'components/ContactList/ContactList';
 
 class App extends Component {
   state = {
@@ -20,7 +21,7 @@ class App extends Component {
 
         <h2>Contacts</h2>
         {/* <Filter ... /> */}
-        {/* <ContactList ... /> */}
+        <ContactList contacts={this.state.contacts} />
       </div>
     );
   }
