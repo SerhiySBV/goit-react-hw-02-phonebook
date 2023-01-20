@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 class ContactForm extends Component {
+  static defaultProps = {
+    contacts: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+      }).isRequired
+    ),
+    filter: PropTypes.string.isRequired,
+  };
+
   state = { name: '', number: '', id: nanoid() };
 
   handleChange = event => {
@@ -25,7 +37,7 @@ class ContactForm extends Component {
         onSubmit={this.handleSumit}
         style={{ display: 'flex', gap: '15px' }}
       >
-        <label htmlFor={this.inputId}>
+        <label>
           Name
           <input
             type="text"
